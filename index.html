@@ -1,26 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" ></script>
-</head>
-<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" ></script>
+
     
+    <script class="filterCars" type="text/template">
+        <table>
+       <ul>
+            {{#each filterTheCars}}
+            <li>{{this.model}}</li>
+            <li>{{this.make}}</li>
+            <li>{{this.color}}</li>
+            <li>{{this.price}}</li>
+            <li>{{this.reg_number}}</li>
+            <br><br>
+            {{/each}}
+       </ul>
+    </table>
+    </script>
+
+</head>
+
+<body>
+
     <h1>Car info</h1>
 
-	<h2>Cars</h2>
-	
-        <table class="cars">
-            <th>Make</th>
-            <th>Car</th>
-            <th>Color</th>
-        </table>
-	
+    <h2>Colors</h2>
+    <div class="colors">
+
+    </div>
+
+    <h2>Brands</h2>
+    <div class="brands">
+
+    </div>
+
+    <h2>Cars</h2>
+
+    <table class="cars">
+        <th>Make</th>
+        <th>Car</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Reg Number</th>
+    </table>
+
+    <div>
+
+        <h1>Car filter</h1>
+
+        <label for="">Color:</label>
+        <select class="colorSelect" name="" id="">
+            <option value="">Choose a color</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+        </select>
+    </div>
+<br><br>
+    <div>
+        <label for="">Brand:</label>
+        <select class="brandSelect" name="" id="">
+            <option value="">Choose a brand</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="toyota">Toyota</option>
+            <option value="nissan">Nissan</option>
+            <option value="Ford">Ford</option>
+        </select>
+
+    </div>
+<br><br>
+    <div class="btnFilter"><button type="submit">Submit</button></div>
+
+    <div class="display"></div>
 
 </body>
 <script src="./cars.js"></script>
+
 </html>
