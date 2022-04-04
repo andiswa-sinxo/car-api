@@ -13,16 +13,15 @@
     
     <script class="filterCars" type="text/template">
         <table>
-       <ul>
+       <tr>
             {{#each filterTheCars}}
-            <li>{{this.model}}</li>
-            <li>{{this.make}}</li>
-            <li>{{this.color}}</li>
-            <li>{{this.price}}</li>
-            <li>{{this.reg_number}}</li>
-            <br><br>
+            <td>{{this.model}}</td>
+            <td>{{this.make}}</td>
+            <td>l{{this.color}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.reg_number}}</td>
             {{/each}}
-       </ul>
+       </tr>
     </table>
     </script>
 

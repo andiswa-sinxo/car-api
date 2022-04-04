@@ -16,15 +16,20 @@ btn.addEventListener("click", function(){
 
         axios
         .get("https://api-tutor.herokuapp.com/v1/cars/make/" + makes + '/color/' + colors)
-        .then(function (results){
-            
-            let data = results.data;
-            filterTheCars.push(data)
-
-
-            console.log(filterTheCars);
-            display.innerHTML = templateFilter({
-                filterTheCars : data
+        .then(results => results.data)
+        .then(cars => {
+            carElem.innerHTML = ""
+            cars.forEach(function (car){
+                console.log(car);
+                const li = document.createElement("tr");
+                li.innerHTML = `<tr>
+                <td>${car.make}</td>
+                <td>${car.model}</td>
+                <td>${car.color}</td>
+                <td>${car.price}</td>
+                <td>${car.reg_number}</td>
+            </tr>`
+                carElem.appendChild(li)
             })
         })
 
