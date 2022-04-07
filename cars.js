@@ -32,7 +32,45 @@ btn.addEventListener("click", function(){
                 carElem.appendChild(li)
             })
         })
+        // var colors = colorSelec.value
+        var makes = brandSelec.value
 
+        axios
+        .get("https://api-tutor.herokuapp.com/v1/cars/make/" + makes )
+        .then(results => results.data)
+        .then(cars => {
+            carElem.innerHTML = ""
+            cars.forEach(function (car){
+                console.log(car);
+                const li = document.createElement("tr");
+                li.innerHTML = `<tr>
+                <td>${car.make}</td>
+                <td>${car.model}</td>
+                <td>${car.price}</td>
+                <td>${car.reg_number}</td>
+            </tr>`
+                carElem.appendChild(li)
+            })
+        })
+        var colors = colorSelec.value
+
+        axios
+        .get("https://api-tutor.herokuapp.com/v1/cars/color/" + color )
+        .then(results => results.data)
+        .then(cars => {
+            carElem.innerHTML = ""
+            cars.forEach(function (car){
+                console.log(car);
+                const li = document.createElement("tr");
+                li.innerHTML = `<tr>
+                <td>${car.color}</td>
+                <td>${car.model}</td>
+                <td>${car.price}</td>
+                <td>${car.reg_number}</td>
+            </tr>`
+                carElem.appendChild(li)
+            })
+        })
 })
 
 axios
