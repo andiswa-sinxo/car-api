@@ -55,7 +55,7 @@ btn.addEventListener("click", function(){
         var colors = colorSelec.value
 
         axios
-        .get("https://api-tutor.herokuapp.com/v1/cars/color/" + color )
+        .get("https://api-tutor.herokuapp.com/v1/cars/color/" + colors )
         .then(results => results.data)
         .then(cars => {
             carElem.innerHTML = ""
